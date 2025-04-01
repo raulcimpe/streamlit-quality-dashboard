@@ -56,10 +56,6 @@ if st.sidebar.button("🚀 Predict"):
     # Convert the input data into a DataFrame format
     input_df = pd.DataFrame([input_data])
 
-    # Ensure the column order matches the model’s expected input
-    expected_features = model.named_steps["preprocessor"].transformers_[0][2]
-    input_df = input_df[expected_features]
-
     # If any inputs are out of range, display a warning
     if out_of_range_flags:
         st.warning("⚠️ Some input values are outside the expected range:")
