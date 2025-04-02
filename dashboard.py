@@ -50,6 +50,9 @@ for feature, (min_val, max_val) in feature_ranges.items():
 # Example input values for each class in preferred order
 example_data = {
     "Class": ["Waste", "Acceptable", "Target", "Inefficient"],
+    "injection efficiency": [104.7, 131.0, 141.1, 81.7],
+    "APVs - Specific injection pressure peak value": [918.2, 912.0, 883.3, 894.8],
+    "Mold temperature": [81.2, 81.2, 81.1, 81.9],
     "Mm - Torque mean value current cycle": [104.7, 104.7, 105.3, 105.3],
     "Melt temperature": [106.0, 106.2, 106.0, 108.8],
     "SKx - Closing force": [899, 912, 894, 902],
@@ -57,10 +60,10 @@ example_data = {
     "ZUx - Cycle time": [74.8, 74.8, 75.7, 75.6]
 }
 
-# Convert to DataFrame
+# Create the DataFrame
 example_df = pd.DataFrame(example_data)
 
-# Set class as index for cleaner look
+# Set the 'Class' column as the index
 example_df.set_index("Class", inplace=True)
 
 # Display the table before the prediction button
