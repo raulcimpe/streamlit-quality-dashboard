@@ -49,19 +49,18 @@ for feature, (min_val, max_val) in feature_ranges.items():
 
 st.subheader("📋 Example Input Values for Each Class")
 
-example_values = pd.DataFrame({
+# Clean and precise sample values (updated with only filled rows)
+example_data = pd.DataFrame({
     "Class": ["Waste", "Acceptable", "Target", "Inefficient"],
-    "injection efficiency": [121, 131, 141, 81],
-    "APVs - Specific injection pressure peak value": [861, 913, 883, 894],
-    "Mold temperature": [81.1, 81.2, 81.1, 81.9],
     "Mm - Torque mean value current cycle": [104.7, 104.7, 105.3, 105.3],
-    "Melt temperature": [106.0, 106.2, 106.0, 108.8],
+    "Melt temperature": [106, 106.2, 106, 108.8],
     "SKx - Closing force": [899, 912, 894, 902],
     "SKs - Clamping force peak value": [915, 928, 915, 918],
     "ZUx - Cycle time": [74.8, 74.8, 75.7, 75.6]
 })
 
-st.dataframe(example_values.set_index("Class"), height=230)
+# Display the cleaned DataFrame
+st.dataframe(example_data, use_container_width=True)
 
 
 # Prediction button
