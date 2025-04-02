@@ -10,14 +10,14 @@ model = joblib.load("lightgbm_model.pkl")
 
 # Define acceptable ranges for each input feature based on training data
 feature_ranges = {
-    "injection efficiency": (30, 180),
-    "APVs - Specific injection pressure peak value": (500, 1400),
-    "Mold temperature": (40, 120),
-    "Mm - Torque mean value current cycle": (5, 35),
-    "Melt temperature": (160, 350),
-    "SKx - Closing force": (25, 75),
-    "SKs - Clamping force peak value": (30, 110),
-    "ZUx - Cycle time": (40, 110)
+    "injection efficiency": (75, 155),  # Global range: 77.5 – 152.6
+    "APVs - Specific injection pressure peak value": (780, 940),  # Global range: 780.5 – 937.7
+    "Mold temperature": (78, 83),  # Global range: 78.4 – 82.1
+    "Mm - Torque mean value current cycle": (76, 115),  # Global range: 76.5 – 114.9
+    "Melt temperature": (80, 155),  # Global range: 80 – 154.9
+    "SKx - Closing force": (878, 933),  # Global range: 878 – 932.8
+    "SKs - Clamping force peak value": (894, 947),  # Global range: 894.8 – 946.5
+    "ZUx - Cycle time": (74.7, 75.8)  # Global range: 74.7 – 75.79
 }
 
 # Define what each quality label means
