@@ -68,7 +68,7 @@ if predict_button:
 
     # Display prediction result
     st.subheader("🎯 Predicted Quality Class")
-    st.markdown(f"# `{prediction}` - {quality_labels[prediction]}")
+    st.markdown(f"#### `{prediction}` - {quality_labels[prediction]}")
 
     # Display prediction confidence
     st.subheader("📊 Prediction Confidence")
