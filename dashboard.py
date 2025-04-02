@@ -8,12 +8,9 @@ import matplotlib.pyplot as plt
 # Load the machine learning model pipeline (including preprocessing steps)
 model = joblib.load("lightgbm_model.pkl")
 
-# Get the exact column names the model expects
-expected_features = model.named_steps["preprocessor"].transformers_[0][2]
-
-# Define extended ranges for input sliders
+# Define acceptable ranges for each input feature based on training data
 feature_ranges = {
-    "injection_efficiency": (30, 180),
+    "injection efficiency": (30, 180),
     "APVs - Specific injection pressure peak value": (500, 1400),
     "Mold temperature": (40, 120),
     "Mm - Torque mean value current cycle": (5, 35),
@@ -31,63 +28,69 @@ quality_labels = {
     4: "Inefficient: Product is above acceptable but falls short of target quality due to process inefficiencies."
 }
 
-# Set up page configuration
+# Set up the page settings and title for the app
 st.set_page_config(page_title="Quality Prediction Dashboard", layout="centered")
 st.title("📊 Quality Prediction Dashboard")
 st.markdown("Use this tool to predict the **quality class** of a manufactured product based on input parameters.")
 
-# Sidebar for input sliders
+# Input section
 st.sidebar.header("🔧 Input Parameters")
-input_data = {}
 
-# Input sliders for each feature in expected order
-for feature in expected_features:
-    min_val, max_val = feature_ranges[feature]
+input_data = {}
+out_of_range_flags = []
+
+# Create number inputs for each feature
+for feature, (min_val, max_val) in feature_ranges.items():
     default_val = (min_val + max_val) / 2
-    user_val = st.sidebar.number_input(
-        label=feature,
-        value=float(default_val),
-        min_value=float(min_val),
-        max_value=float(max_val),
-        step=1.0,
-        format="%.2f"
-    )
+    user_val = st.sidebar.number_input(label=feature, value=float(default_val), min_value=float(min_val), max_value=float(max_val))
     input_data[feature] = user_val
 
-# Predict button
-if st.sidebar.button("🚀 Predict"):
-    # Ensure correct DataFrame structure and order
-    input_df = pd.DataFrame([input_data])[expected_features]
+# Prediction button
+predict_button = st.sidebar.button("🚀 Predict")
+
+if predict_button:
+    input_df = pd.DataFrame([input_data])
+
+    # Warn if any input is out of expected range (unlikely with number_input limits, but safe to include)
+    for feature, val in input_data.items():
+        min_val, max_val = feature_ranges[feature]
+        if val < min_val or val > max_val:
+            out_of_range_flags.append((feature, val, min_val, max_val))
+
+    if out_of_range_flags:
+        st.warning("⚠️ Some input values are outside the expected range:")
+        for feature, val, min_v, max_v in out_of_range_flags:
+            st.markdown(f"- **{feature}**: {val} (Expected range: {min_v} - {max_v})")
 
     # Make prediction
     prediction = model.predict(input_df)[0]
     prediction_proba = model.predict_proba(input_df)[0]
 
-    # Display predicted class
+    # Display prediction result
     st.subheader("🎯 Predicted Quality Class")
-    st.markdown(f"### `Class {prediction}` – {quality_labels[prediction]}")
+    st.markdown(f"# `{prediction}` - {quality_labels[prediction]}")
 
-    # Show prediction probabilities
+    # Display prediction confidence
     st.subheader("📊 Prediction Confidence")
     categories = ["Waste", "Acceptable", "Target", "Inefficient"]
-    colors = ["red", "orange", "green", "blue"]
     fig, ax = plt.subplots(figsize=(6, 4))
-    bars = ax.bar(categories, prediction_proba, color=colors)
+    bars = ax.bar(categories, prediction_proba, color=["red", "orange", "green", "blue"])
     for i, bar in enumerate(bars):
         height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2, height + 0.01, f"{height:.2f}", ha="center", va="bottom")
+        ax.text(bar.get_x() + bar.get_width() / 2, height + 0.01, f"{height:.2f}", ha="center", va="bottom", fontsize=10, fontweight="bold")
     ax.set_ylabel("Probability")
     ax.set_ylim(0, 1.1)
     ax.set_title("Model Confidence")
     st.pyplot(fig)
 
-    # Show feature importance
+    # Display feature importance
     st.subheader("🔍 Feature Importance")
-    importances = model.named_steps["classifier"].feature_importances_
-    norm_importance = importances / np.sum(importances)
-    fig2, ax2 = plt.subplots(figsize=(8, 5))
-    sorted_idx = np.argsort(norm_importance)
-    ax2.barh(np.array(expected_features)[sorted_idx], norm_importance[sorted_idx], color="steelblue")
-    ax2.set_xlabel("Normalized Importance")
-    ax2.set_title("Feature Importance")
-    st.pyplot(fig2)
+    feature_importance = model.named_steps["classifier"].feature_importances_
+    normalized_importance = feature_importance / np.sum(feature_importance)
+    feature_names = list(input_df.columns)
+    fig, ax = plt.subplots(figsize=(7, 5))
+    sorted_idx = np.argsort(normalized_importance)
+    ax.barh(np.array(feature_names)[sorted_idx], normalized_importance[sorted_idx], color="steelblue")
+    ax.set_xlabel("Normalized Importance")
+    ax.set_title("Normalized Feature Importance in Prediction")
+    st.pyplot(fig)
