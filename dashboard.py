@@ -49,9 +49,8 @@ for feature, (min_val, max_val) in feature_ranges.items():
 
 st.subheader("📋 Example Input Values for Each Class")
 
-# Clean and precise sample values (updated with only filled rows)
 example_data = pd.DataFrame({
-    "Class": ["Waste", "Acceptable", "Target", "Inefficient"],
+    "Class": ["1 - Waste", "2 - Acceptable", "3 - Target", "4 - Inefficient"],
     "Mm - Torque mean value current cycle": [104.7, 104.7, 105.3, 105.3],
     "Melt temperature": [106, 106.2, 106, 108.8],
     "SKx - Closing force": [899, 912, 894, 902],
@@ -59,7 +58,6 @@ example_data = pd.DataFrame({
     "ZUx - Cycle time": [74.8, 74.8, 75.7, 75.6]
 })
 
-# Display the cleaned DataFrame
 st.dataframe(example_data, use_container_width=True)
 
 
