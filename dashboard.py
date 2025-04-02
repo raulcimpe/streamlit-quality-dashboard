@@ -68,7 +68,7 @@ example_df.set_index("Class", inplace=True)
 
 # Display the table before the prediction button
 st.markdown("### 🧪 Example Input Values for Each Class")
-st.dataframe(example_df.style.set_properties(**{'text-align': 'center'}), use_container_width=True)
+st.dataframe(example_df.style.format("{:.2f}").set_properties(**{'text-align': 'center'}), use_container_width=True)
 
 
 # Prediction button
