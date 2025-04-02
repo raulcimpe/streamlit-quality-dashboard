@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import joblib
 import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 # Load the machine learning model pipeline (including preprocessing steps)
 model = joblib.load("lightgbm_model.pkl")
