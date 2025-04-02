@@ -45,6 +45,25 @@ for feature, (min_val, max_val) in feature_ranges.items():
     user_val = st.sidebar.number_input(label=feature, value=float(default_val), min_value=float(min_val), max_value=float(max_val))
     input_data[feature] = user_val
 
+
+
+st.subheader("📋 Example Input Values for Each Class")
+
+example_values = pd.DataFrame({
+    "Class": ["Waste", "Acceptable", "Target", "Inefficient"],
+    "injection efficiency": [121, 131, 141, 81],
+    "APVs - Specific injection pressure peak value": [861, 913, 883, 894],
+    "Mold temperature": [81.1, 81.2, 81.1, 81.9],
+    "Mm - Torque mean value current cycle": [104.7, 104.7, 105.3, 105.3],
+    "Melt temperature": [106.0, 106.2, 106.0, 108.8],
+    "SKx - Closing force": [899, 912, 894, 902],
+    "SKs - Clamping force peak value": [915, 928, 915, 918],
+    "ZUx - Cycle time": [74.8, 74.8, 75.7, 75.6]
+})
+
+st.dataframe(example_values.set_index("Class"), height=230)
+
+
 # Prediction button
 predict_button = st.sidebar.button("🚀 Predict")
 
