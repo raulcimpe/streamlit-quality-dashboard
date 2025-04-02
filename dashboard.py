@@ -52,10 +52,24 @@ for feature, (min_val, max_val) in feature_ranges.items():
     input_data[feature] = user_val
 
 # Predict button
+# Predict button
 if st.sidebar.button("🚀 Predict"):
     input_df = pd.DataFrame([input_data])
 
-    # (Optional) Check for out-of-range values
+    # Force correct column order and naming
+    expected_features = [
+        "injection_efficiency",
+        "APVs - Specific injection pressure peak value",
+        "Mold temperature",
+        "Mm - Torque mean value current cycle",
+        "Melt temperature",
+        "SKx - Closing force",
+        "SKs - Clamping force peak value",
+        "ZUx - Cycle time"
+    ]
+    input_df = input_df[expected_features]
+
+    # Check for out-of-range values (optional)
     for feature, val in input_data.items():
         min_val, max_val = feature_ranges[feature]
         if val < min_val or val > max_val:
