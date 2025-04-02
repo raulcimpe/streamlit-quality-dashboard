@@ -47,18 +47,25 @@ for feature, (min_val, max_val) in feature_ranges.items():
 
 
 
-st.subheader("📋 Example Input Values for Each Class")
-
-example_data = pd.DataFrame({
-    "Class": ["1 - Waste", "2 - Acceptable", "3 - Target", "4 - Inefficient"],
+# Example input values for each class in preferred order
+example_data = {
+    "Class": ["Waste", "Acceptable", "Target", "Inefficient"],
     "Mm - Torque mean value current cycle": [104.7, 104.7, 105.3, 105.3],
-    "Melt temperature": [106, 106.2, 106, 108.8],
+    "Melt temperature": [106.0, 106.2, 106.0, 108.8],
     "SKx - Closing force": [899, 912, 894, 902],
     "SKs - Clamping force peak value": [915, 928, 915, 918],
     "ZUx - Cycle time": [74.8, 74.8, 75.7, 75.6]
-})
+}
 
-st.dataframe(example_data, use_container_width=True)
+# Convert to DataFrame
+example_df = pd.DataFrame(example_data)
+
+# Set class as index for cleaner look
+example_df.set_index("Class", inplace=True)
+
+# Display the table before the prediction button
+st.markdown("### 🧪 Example Input Values for Each Class")
+st.dataframe(example_df.style.set_properties(**{'text-align': 'center'}), use_container_width=True)
 
 
 # Prediction button
