@@ -110,13 +110,21 @@ if predict_button:
     st.pyplot(fig)
 
     # Display feature importance
+    # Display feature importance (non-normalized)
     st.subheader("🔍 Feature Importance")
     feature_importance = model.named_steps["classifier"].feature_importances_
-    normalized_importance = feature_importance / np.sum(feature_importance)
     feature_names = list(input_df.columns)
-    fig, ax = plt.subplots(figsize=(7, 5))
-    sorted_idx = np.argsort(normalized_importance)
-    ax.barh(np.array(feature_names)[sorted_idx], normalized_importance[sorted_idx], color="steelblue")
-    ax.set_xlabel("Normalized Importance")
-    ax.set_title("Normalized Feature Importance in Prediction")
+
+    # Create DataFrame and sort by importance
+    importance_df = pd.DataFrame({
+        "Feature": feature_names,
+        "Importance": feature_importance
+    }).sort_values(by="Importance", ascending=False)
+
+    # Plot the importance
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.barplot(x="Importance", y="Feature", data=importance_df, ax=ax)
+    ax.set_title("Feature Importance - LightGBM")
+    ax.set_xlabel("Importance Score")
+    ax.set_ylabel("Feature")
     st.pyplot(fig)
