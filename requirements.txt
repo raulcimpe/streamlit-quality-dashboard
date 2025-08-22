@@ -1,1 +1,6 @@
-streamlit\npandas\nnumpy\nscikit-learn\nlightgbm\njoblib
+streamlit
+pandas
+numpy
+scikit-learn
+lightgbm
+joblib
