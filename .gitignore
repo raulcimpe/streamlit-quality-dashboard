@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+.env
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Data & models (keep only small samples and the final model if needed)
+data/*
+!data/sample.csv
+models/*.joblib
+models/*.pkl
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
