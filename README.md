@@ -3,11 +3,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Open in Streamlit](https://img.shields.io/badge/Live-Dashboard-brightgreen)](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
 
-This project was developed as part of the **Artificial Intelligence module at London South Bank University (LSBU)**.  
-It demonstrates how **machine learning techniques can be applied to predict product quality in plastic injection manufacturing**.  
+## 🔎 Introduction
+In manufacturing, defective products lead to significant waste and costs.  
+Traditional quality checks are performed **after production**, which is inefficient and expensive.  
 
-Traditional quality checks are performed **after production**, which is costly and inefficient.  
-Here, a complete **end-to-end ML pipeline** was designed to predict defects in real time using process parameters such as temperature, pressure, and cycle time.
+This project demonstrates how **machine learning** can be applied to predict product quality in real time, using process parameters such as temperature, pressure, and cycle time.  
+A complete **end-to-end ML pipeline** was designed, tested, and deployed as an interactive dashboard for proactive quality control.
 
 ---
 
@@ -22,20 +23,23 @@ Here, a complete **end-to-end ML pipeline** was designed to predict defects in r
 ---
 
 ## 📊 Results
-After testing multiple models, **LightGBM achieved the best performance**:  
-- Accuracy: **94.5%**  
-- ROC-AUC: **0.9945**  
+After testing multiple models, **LightGBM achieved the best performance**:
 
-This model was selected for deployment in the dashboard.  
+- Accuracy: **94.5%**  
+- ROC-AUC: **0.9945**
+
+Other models such as Random Forest and SVM also performed well, but LightGBM consistently outperformed them across all metrics, making it the most reliable choice for deployment.
 
 ---
 
 ## 🚀 Deployment
-The **LightGBM model** was integrated into an interactive dashboard built with **Streamlit**, where users can:  
+The **LightGBM model** was integrated into an interactive dashboard built with **Streamlit**, turning a research pipeline into a **practical tool for engineers and decision-makers**.  
+
+With the dashboard, users can:  
 - Enter process parameters to generate predictions  
 - Classify outputs as **Waste, Acceptable, Target, Inefficient**  
 - View **prediction probabilities**  
-- Explore **feature importance**  
+- Explore **feature importance**
 
 👉 [Open the Dashboard](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
 
