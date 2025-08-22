@@ -1,14 +1,14 @@
 # Streamlit Quality Dashboard (LightGBM)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Open in Streamlit](https://img.shields.io/badge/Live-Dashboard-brightgreen)](<https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app>)
+[![Open in Streamlit](https://img.shields.io/badge/Live-Dashboard-brightgreen)](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
 
-Interactive dashboard to **predict manufacturing product quality** from process variables and explain the main drivers.  
+Interactive dashboard to **predict manufacturing product quality** from process variables and to explain the main drivers.  
 Built with **Python, scikit-learn, LightGBM, and Streamlit**.
 
 ---
 
 ## 📖 Demo
-👉 [Open Dashboard](<YOUR_STREAMLIT_APP_URL>)  
+👉 [Open Dashboard](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
 
 ---
 
@@ -25,6 +25,7 @@ Built with **Python, scikit-learn, LightGBM, and Streamlit**.
 - Clean, modular project structure for reproducibility  
 
 ---
+
 
 ## 📂 Project Structure
 ```
@@ -49,9 +50,9 @@ LICENSE             # MIT License
 python -m venv .venv
 
 # 2. Activate it
-# Windows
+# On Windows
 .venv\Scripts\activate
-# Linux / Mac
+# On Linux / Mac
 source .venv/bin/activate
 
 # 3. Install dependencies
@@ -63,5 +64,5 @@ streamlit run app/dashboard.py
 
 ---
 
-## License
-This project is licensed under the MIT License – see the [LICENSE](https://github.com/raulcimpe/streamlit-quality-dashboard/blob/main/LICENSE) file for details.
+## 📜 License
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
