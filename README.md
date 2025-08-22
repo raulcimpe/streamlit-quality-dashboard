@@ -42,7 +42,7 @@ The **LightGBM model** was integrated into an interactive dashboard built with *
 ---
 
 ## 🖼️ Screenshot
-![Dashboard Screenshot](images/dashboard.png)
+![Dashboard Screenshot](images/screenshot.png)
 
 ---
 
