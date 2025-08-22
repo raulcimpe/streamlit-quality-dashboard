@@ -13,7 +13,7 @@ Open the app: https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app
 ---
 
 ## Screenshot
-![Dashboard Screenshot](images/dashboard.png)
+![Dashboard Screenshot](images/screenshot.png)
 
 ---
 
