@@ -4,7 +4,11 @@ Interactive dashboard to predict **manufacturing product quality** from process 
 Built with **Python, scikit-learn, LightGBM, and Streamlit**.
 
 ---
+## 🚀 Demo
 
+Click here to view the live Streamlit app: [Open Dashboard](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app/)
+
+---
 ## Screenshot
 
 ![Dashboard Screenshot](images/screenshot.png)
