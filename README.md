@@ -1,30 +1,32 @@
 # Streamlit Quality Dashboard (LightGBM)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Open in Streamlit](https://img.shields.io/badge/Live-Dashboard-brightgreen)](<https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app>)
 
-Interactive dashboard to predict **manufacturing product quality** from process variables and explain the main drivers.  
+Interactive dashboard to **predict manufacturing product quality** from process variables and explain the main drivers.  
 Built with **Python, scikit-learn, LightGBM, and Streamlit**.
 
 ---
-## Demo
 
-Click here to view the live Streamlit app: [Open Dashboard](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app/)
-
----
-## Screenshot
-
-![Dashboard Screenshot](images/screenshot.png)
+## 📖 Demo
+👉 [Open Dashboard](<YOUR_STREAMLIT_APP_URL>)  
 
 ---
 
-## Features
-- Classifies products into **Waste, Acceptable, Target, Inefficient**
-- Uses a **LightGBM pipeline** with preprocessing and feature selection
-- Interactive **Streamlit interface** for predictions
-- Shows **prediction probabilities** and **feature importance**
-- Clean project structure for reproducibility
+## 🖼️ Screenshot
+![Dashboard Screenshot](images/dashboard.png)
 
 ---
 
-## Project Structure
+## 🚀 Features
+- Classifies products into **Waste, Acceptable, Target, Inefficient**  
+- Uses a **LightGBM pipeline** with preprocessing and feature selection  
+- Interactive **Streamlit interface** for real-time predictions  
+- Displays **prediction probabilities** and **feature importance**  
+- Clean, modular project structure for reproducibility  
+
+---
+
+## 📂 Project Structure
 ```
 app/                # Streamlit app (dashboard.py)
 notebooks/          # Jupyter notebooks (EDA, model training)
