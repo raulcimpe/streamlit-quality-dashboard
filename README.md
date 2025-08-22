@@ -2,8 +2,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Open in Streamlit](https://img.shields.io/badge/Live-Dashboard-brightgreen)](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
 
-Interactive dashboard to **predict manufacturing product quality** from process variables and to explain the main drivers.  
-Built with **Python, scikit-learn, LightGBM, and Streamlit**.
+This project was developed as part of a data science portfolio to demonstrate how **machine learning models can be integrated into interactive web applications**.  
+The goal is to predict the **manufacturing quality class of products** based on process parameters, and to provide **interpretable insights** through a simple dashboard.  
+
+By combining **LightGBM** for classification with **Streamlit** for deployment, the project illustrates how raw industrial data can be transformed into a tool that supports decision-making for production efficiency and quality control.
 
 ---
 
