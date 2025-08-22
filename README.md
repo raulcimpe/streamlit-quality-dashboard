@@ -7,7 +7,7 @@ Built with **Python, scikit-learn, LightGBM, and Streamlit**.
 
 ## Screenshot
 
-![Dashboard Screenshot](images/Quality-Prediction-Dashboard---Streamlit-04-02-2025_12_18_PM.png)
+![Dashboard Screenshot](images/screenshot.png)
 
 ---
 
