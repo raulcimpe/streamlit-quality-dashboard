@@ -1,32 +1,52 @@
 # Streamlit Quality Dashboard (LightGBM)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Open in Streamlit](https://img.shields.io/badge/Live-Dashboard-brightgreen)](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
 
-This project was developed as part of a data science portfolio to demonstrate how **machine learning models can be integrated into interactive web applications**.  
-The goal is to predict the **manufacturing quality class of products** based on process parameters, and to provide **interpretable insights** through a simple dashboard.  
+This project was developed as part of the **Artificial Intelligence module at London South Bank University (LSBU)**.  
+It demonstrates how **machine learning techniques can be applied to predict product quality in plastic injection manufacturing**.  
 
-By combining **LightGBM** for classification with **Streamlit** for deployment, the project illustrates how raw industrial data can be transformed into a tool that supports decision-making for production efficiency and quality control.
-
----
-
-## Demo
-Open the app: https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app
+Traditional quality checks are performed **after production**, which is costly and inefficient.  
+Here, a complete **end-to-end ML pipeline** was designed to predict defects in real time using process parameters such as temperature, pressure, and cycle time.
 
 ---
 
-## Screenshot
-![Dashboard Screenshot](images/screenshot.png)
+## 🔬 Machine Learning Pipeline
+- **Data preprocessing**: Winsorization and normalization to handle outliers and ensure consistent scaling.  
+- **Feature engineering**: Derived variables such as *Injection Efficiency* and *Torque Stability*.  
+- **Feature selection**: ANOVA used to identify the most relevant predictors.  
+- **Model training**: Five algorithms tested — Random Forest, SVM, AdaBoost, LightGBM, and ANN.  
+- **Hyperparameter tuning**: GridSearchCV with 3-fold cross-validation.  
+- **Evaluation metrics**: Accuracy, ROC-AUC, F1-score, and confusion matrices.  
 
 ---
 
-## Features
-- Classifies products into **Waste, Acceptable, Target, Inefficient**  
-- Uses a **LightGBM pipeline** with preprocessing and feature selection  
-- Interactive **Streamlit interface** for real-time predictions  
-- Displays **prediction probabilities** and **feature importance**  
-- Clean, modular project structure for reproducibility  
+## 📊 Results
+After testing multiple models, **LightGBM achieved the best performance**:  
+- Accuracy: **94.5%**  
+- ROC-AUC: **0.9945**  
+
+This model was selected for deployment in the dashboard.  
 
 ---
+
+## 🚀 Deployment
+The **LightGBM model** was integrated into an interactive dashboard built with **Streamlit**, where users can:  
+- Enter process parameters to generate predictions  
+- Classify outputs as **Waste, Acceptable, Target, Inefficient**  
+- View **prediction probabilities**  
+- Explore **feature importance**  
+
+👉 [Open the Dashboard](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
+
+---
+
+## 🖼️ Screenshot
+![Dashboard Screenshot](images/dashboard.png)
+
+---
+
+## 📂 Project Structure
 
 ## Project Structure
 ```
@@ -44,7 +64,7 @@ streamlit-quality-dashboard/
 
 ---
 
-## Quickstart
+## ⚙️ Quickstart
 
 ```bash
 # 1. Create a virtual environment
