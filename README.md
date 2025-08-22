@@ -7,17 +7,17 @@ Built with **Python, scikit-learn, LightGBM, and Streamlit**.
 
 ---
 
-## 📖 Demo
-👉 [Open Dashboard](https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app)
+## Demo
+Open the app: https://app-quality-dashboard-xzktf8sfvx8s7utc6cid2f.streamlit.app
 
 ---
 
-## 🖼️ Screenshot
+## Screenshot
 ![Dashboard Screenshot](images/dashboard.png)
 
 ---
 
-## 🚀 Features
+## Features
 - Classifies products into **Waste, Acceptable, Target, Inefficient**  
 - Uses a **LightGBM pipeline** with preprocessing and feature selection  
 - Interactive **Streamlit interface** for real-time predictions  
@@ -26,25 +26,24 @@ Built with **Python, scikit-learn, LightGBM, and Streamlit**.
 
 ---
 
-
-## 📂 Project Structure
+## Project Structure
 ```
-app/                # Streamlit app (dashboard.py)
-notebooks/          # Jupyter notebooks (EDA, model training)
-data/               # Sample dataset (small example only)
-images/             # Screenshots for the README
-src/                # Helper functions (inference, utils)
-lightgbm_model.pkl  # Pretrained LightGBM model
-requirements.txt    # Python dependencies
-README.md           # Project documentation
-LICENSE             # MIT License
+streamlit-quality-dashboard/
+├── app/                # Streamlit app (dashboard.py)
+├── notebooks/          # Jupyter notebooks (EDA, model training)
+├── data/               # Sample dataset (small example only)
+├── images/             # Screenshots for the README
+├── src/                # Helper functions (inference, utils)
+├── lightgbm_model.pkl  # Pretrained LightGBM model
+├── requirements.txt    # Python dependencies
+├── LICENSE             # MIT License
+└── README.md           # Project documentation
 ```
 
 ---
 
+## Quickstart
 
-
-## ⚙️ Quickstart
 ```bash
 # 1. Create a virtual environment
 python -m venv .venv
@@ -60,9 +59,11 @@ pip install -r requirements.txt
 
 # 4. Run the app
 streamlit run app/dashboard.py
+```
 
+The app will launch locally at: http://localhost:8501
 
 ---
-## 📜 License
+
+## License
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
----
